@@ -117,9 +117,15 @@ const webConfig = {
         loader: 'vue-loader'
       }]
     },{
-      test: /\.css$/,
+      test: /\.scss$/,
       use: [{
+        loader: 'style-loader'
+      },
+      {
         loader: 'css-loader'
+      },
+      {
+        loader: 'sass-loader'
       }]
     }]
   },

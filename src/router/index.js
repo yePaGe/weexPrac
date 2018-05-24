@@ -6,16 +6,20 @@ import Sec from '../views/sec.vue';
 Vue.use(Router);
 
 const router = new Router({
-    mode: 'abstract',
     routes: [
         {
             path: '/',
-            redirect: '/sec'
+            redirect: '/home'
         },
         {
             path: '/home',
             name: '登录',
             component: Home
+        },
+        {
+            path: '/sec',
+            name: '此页',
+            component: Sec
         }
     ]
 })
