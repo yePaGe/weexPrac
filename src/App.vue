@@ -5,6 +5,7 @@
 </template>
 
 <style>
+@import './assets/scss/public.scss'; 
   .wrapper { align-items: center; margin-top: 120px; }
   .r-box{
         position: absolute;
@@ -22,6 +23,10 @@
     width: 100%;
     height: 100%;
     margin: 0;
+  }
+  #app {
+    width: 100%;
+    height: 100%;
   }
 </style>
 
@@ -45,7 +50,6 @@
       }
     },
     created() {
-      this.clientHeight = body.clientHeight
       this.getData()
     }
   }

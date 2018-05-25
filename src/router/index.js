@@ -1,7 +1,11 @@
 import Router from 'vue-router';
 
-import Home from '../views/home.vue';
-import Sec from '../views/sec.vue';
+import Cover from '../views/pages/cover/cover.vue';
+import Home from '../views/pages/home/home.vue';
+import Tips from '../views/pages/tips/tips.vue';
+import Search from '../views/pages/search/search.vue';
+import Shopcart from '../views/pages/shopcart/shopcart.vue';
+import Mine from '../views/pages/mine/mine.vue';
 
 Vue.use(Router);
 
@@ -9,17 +13,37 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            redirect: '/home'
+            redirect: '/cover'
+        },
+        {
+            path: '/cover',
+            name: '首页图',
+            component: Cover
         },
         {
             path: '/home',
-            name: '登录',
+            name: '首页',
             component: Home
         },
         {
-            path: '/sec',
-            name: '此页',
-            component: Sec
+            path: '/tips',
+            name: '论坛',
+            component: Tips
+        },
+        {
+            path: '/search',
+            name: '搜索',
+            component: Search
+        },
+        {
+            path: '/shopcart',
+            name: '购物车',
+            component: Shopcart
+        },
+        {
+            path: '/mine',
+            name: '我的',
+            component: Mine
         }
     ]
 })

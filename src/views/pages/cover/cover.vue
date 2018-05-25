@@ -1,17 +1,18 @@
 <template>
     <div class='main'>
-        <slider class='slider' interval='2000' :auto-play='isPlay' @change='imgChange'>
+        <slider class='slider' interval='2000' :show-indicators='true' :auto-play='isPlay' @change='imgChange'>
             <div v-for='i in imgList' :key='i.id' class='img-con'>
-                <image width='100%' height='100%' :src='i.url'/>
+                <image class='img-item' :src='i.url'/>
                 <text class='img-text'>{{i.des}}</text>
-                <button class='img-btn' v-if='!isPlay'>进入App</button>
+                <button class='img-btn' v-if='!isPlay' @click='toHome'>
+                    进入世界
+                </button>
             </div>
         </slider>
     </div>
 </template>
 
 <script>
-// import { mapState } from 'vuex';
 
 export default {
     data() {
@@ -49,9 +50,12 @@ export default {
     methods: {
         imgChange(e) {
             console.log('aaa', e)
-            if(e.index == 0) {
+            if(e.index == 4) {
                 this.isPlay = false
             }
+        },
+        toHome() {
+            this.$router.push('/home')
         }
     },
     created() {
@@ -60,13 +64,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.slider{
-    width: 100%;
-    height: 100%;
-    .img-con{
-        width: 100%;
-        height: 100%;
-    }
-}
+<style lang="sass">
+@import './cover.scss';
 </style>

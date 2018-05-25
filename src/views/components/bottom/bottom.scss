@@ -1,0 +1,24 @@
+.btn-list{
+    height: 8.5%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    background-color: rgb(238, 238, 238);
+    .btn-item{
+        width: 20%;
+        height: 100%;
+        text-align: center;
+        .img-item {
+            width: 40%;
+            height: 50%;
+            margin: 10% 30% 0;
+        }
+        .btn-text{
+            font-size: 10px;
+            color: rgb(99, 99, 99);
+            text-align: center;
+        }
+    }
+}
