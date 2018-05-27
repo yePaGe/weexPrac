@@ -105,7 +105,8 @@ const webConfig = {
    */
   module: {
     // webpack 2.0 
-    rules: [{
+    rules: [
+      {
       test: /\.js$/,
       use: [{
         loader: 'babel-loader'
@@ -116,8 +117,9 @@ const webConfig = {
       use: [{
         loader: 'vue-loader'
       }]
-    },{
-      test: /\.scss$/,
+    },
+    {
+      test: /\.(css|scss)$/,
       use: [{
         loader: 'style-loader'
       },
@@ -127,7 +129,19 @@ const webConfig = {
       {
         loader: 'sass-loader'
       }]
-    }]
+    },
+    {
+     test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+     loader: 'file-loader'
+   },
+   {
+     test: /\.(png|jpg|gif|svg)$/,
+     loader: 'file-loader',
+     options: {
+       name: '[name].[ext]?[hash]'
+     }
+   }
+    ]
   },
   /*
    * Add additional plugins to the compiler.
@@ -160,7 +174,30 @@ const weexConfig = {
       use: [{
         loader: 'weex-loader'
       }]
-    }]
+    },
+    {
+      test: /\.(css|scss)$/,
+      use: [{
+        loader: 'style-loader'
+      },
+      {
+        loader: 'css-loader'
+      },
+      {
+        loader: 'sass-loader'
+      }]
+    },
+    {
+     test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+     loader: 'file-loader'
+   },
+   {
+     test: /\.(png|jpg|gif|svg)$/,
+     loader: 'file-loader',
+     options: {
+       name: '[name].[ext]?[hash]'
+     }
+   }]
   },
   /*
    * These options configure whether to polyfill or mock certain Node.js globals and modules. 

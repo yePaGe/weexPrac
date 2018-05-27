@@ -1,6 +1,7 @@
 <template>
     <div>
         <Top></Top>
+        <div class='main1'></div>
         <Bottom></Bottom>
     </div>
 </template>
@@ -27,6 +28,6 @@ export default {
 }
 </script>
 
-<style lang='sass'>
+<style>
 @import './mine.scss';
 </style>

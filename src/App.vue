@@ -28,6 +28,14 @@
     width: 100%;
     height: 100%;
   }
+  .con-height{
+    height: 100%;
+  }
+  .main-con{
+    width: 100%;
+    height: 90%;
+    margin-top: 11%;
+  }
 </style>
 
 <script>

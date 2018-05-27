@@ -1,8 +1,10 @@
 <template>
     <div class='btn-list'>
         <div v-for='i in barList' :key='i.id' class='btn-item' @click='changePage(i.name)'>
-            <image class='img-item' :src='i.icon' v-if='$route.path != "/" + i.name'/>
-            <image class='img-item' :src='i.onIcon' v-if='$route.path == "/" + i.name'/>
+            <div style='width: 40%; height: 50%; margin: 10% 30% 5%;'>
+                <image class='img-item' :src='i.icon' v-if='$route.path != "/" + i.name'/>
+                <image class='img-item-on' :src='i.onIcon' v-if='$route.path == "/" + i.name'/>
+            </div>
             <text class='btn-font' :style='{color: $route.path == "/" + i.name ? "#f5bf79" : " "}'>{{i.name}}</text>
         </div>
     </div>
