@@ -1,11 +1,12 @@
 .btn-list{
-    height: 7.5%;
+    height: 50px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     flex-direction: row;
-    background-color: rgb(238, 238, 238);
+    border-top: 2px solid rgb(235, 233, 233);
+    background-color: #fff;
     .btn-item{
         width: 20%;
         height: 100%;

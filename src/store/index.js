@@ -1,7 +1,9 @@
-import Vue from 'vue';
 import Vuex from 'vuex';
 
-Vue.use(Vuex)
+//vuex在Web浏览器会自动注册；
+if(WXEnvironment.platform !== 'Web') {
+    Vue.use(Vuex)
+}
 
 const store = new Vuex.Store({
     state: {

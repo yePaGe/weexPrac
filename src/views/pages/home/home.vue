@@ -6,15 +6,16 @@
                 <image style='height: 100%; width: 100%;' v-for='i in imgList' :key='i.id' :src='i.url'/>
             </slider>
             <div class='mid-btn'>
-                <text class='item-text' v-for='i in typeList' :key='i.id'>{{i.name}}</text>
+                <text :class='currentId == i.id ? "cur" : ""' v-for='i in typeList' :key='i.id' @click='chooseCurrent(i.id)'>{{i.name}}</text>
             </div>
-            <div>
-                <scroller>
-                    <div v-for='i in itemList' :key='i.id'>
-                        <text>{{i.item}}</text>
+            <scroller style='width: 100%; margin-bottom: 50px'>
+                <div class='item-list'>
+                    <div v-for='i in itemList' :key='i.id' class='item'>
+                        <image style='height: 80%; width: 100%;' :src='i.url'/>
+                        <text style='color: #d35f00; margin-top: 5px; text-align: center; font-size: 12px'>{{i.name}}</text>
                     </div>
-                </scroller>
-            </div>
+                </div>
+            </scroller>
         </div>
         <Bottom></Bottom>
     </div>
@@ -52,21 +53,22 @@ export default {
             typeList: [
                 {
                     id: 0,
-                    name: '蛋糕'
+                    name: '蛋 糕'
                 },
                 {
                     id: 1,
-                    name: '布丁'
+                    name: '布 丁'
                 },
                 {
                     id: 2,
-                    name: '甜品'
+                    name: '甜 品'
                 },
                 {
                     id: 3,
-                    name: '曲奇'
+                    name: '饼 干'
                 }
             ],
+            currentId: 0,
             itemList: [
                 {
                     id: 0,
@@ -80,9 +82,39 @@ export default {
         Bottom        
     },
     methods: {
+        getList(num) {
+            let id = '';
+            switch(num) {
+                case 0:
+                    id = '5b10bd28ce40311c9499b461';
+                    break;
+                case 1:
+                    id = '5b10c221ce40311c9499b462';
+                    break;
+                case 2:
+                    id = '5b10e87d3bb93523688d2f66';
+                    break;
+                case 3:
+                    id = '5b10eabc3bb93523688d2f67';
+                    break;
+            }
+            this.Get('/server/imgs/itemList', {
+                params: {
+                    id: id
+                }
+            }, res => {
+                if(!res.data.code) {
+                    this.itemList = JSON.parse(res.data).list
+                }
+            })
+        },
+        chooseCurrent(id) {
+            this.currentId = id
+            this.getList(id)
+        }
     },
     created() {
-
+        this.getList(0)
     }
 }
 </script>

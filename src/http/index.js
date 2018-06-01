@@ -10,9 +10,20 @@ export default {
         Get(url, ...options) { // options => success, fail 或 options => params, success, fail
             let params, success, fail;
             if(typeof options[0] == 'object') {
-                params = options[0];
                 success = options[1];
                 fail = options[2];
+                params = options[0].params;
+                let paramsList = Object.keys(params);
+                let query = '?';
+                paramsList.forEach((i, index) => {
+                    if(index == 0) {
+                        query += i + '=' + params[i]
+                    }
+                    else {
+                        query += '&' + i + '=' + params[i]
+                    }
+                })
+                url = url + query
             }
             else {
                 params = {};
